@@ -5,7 +5,7 @@ const Dashboard = ({nombre}) => {
   return (
     <div className="dashboard">
       <div className="left">
-        <div className="sidebar">
+        <div className="sidebar11">
           <div className="wrapper">
             <div className="menu">
               <img src="https://i.ibb.co/B4Dn7CT/menu.png" />
@@ -37,7 +37,7 @@ const Dashboard = ({nombre}) => {
                 <img src="https://i.ibb.co/qdgf3TJ/envelope.png" />
               </div>
               <div className="icon-name1">
-                Buzon
+                Buzon de Usuario
                 <button className="buton-span"> 5</button>
               </div>
             </div>

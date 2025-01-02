@@ -1,7 +1,7 @@
 import React from "react";
 import "../../styles/dashboardEmpresa.css"
 
-const Dashboard2 = ({nombre}) => {
+const Dashboard = ({nombre}) => {
   return (
     <div className="dashboard">
       <div className="left">
@@ -37,7 +37,7 @@ const Dashboard2 = ({nombre}) => {
                 <img src="https://i.ibb.co/qdgf3TJ/envelope.png" />
               </div>
               <div className="icon-name1">
-                Buzon
+                Buzon de empresa
                 <button className="buton-span"> 5</button>
               </div>
             </div>
@@ -354,4 +354,4 @@ const Dashboard2 = ({nombre}) => {
   );
 };
 
-export default Dashboard2;
+export default Dashboard;

@@ -22,12 +22,12 @@ export const Navbar = () => {
         </Link>
         {store?.token && (
           <Link to="/private">
-            <span className="navbar-brand mb-0 h1">Dashboard</span>
+            <span className="navbar-brand mb-0 h1">User Control Panel </span>
           </Link>
         )}
         {store?.token && (
           <Link to="/privateEmpresa">
-            <span className="navbar-brand mb-0 h1">Dashboard2</span>
+            <span className="navbar-brand mb-0 h1">Company Control Panel</span>
           </Link>
         )}
         <div className="ml-auto">
