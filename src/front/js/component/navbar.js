@@ -1,19 +1,50 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React, { useContext, useEffect, useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import { Context } from "../store/appContext";
 
 export const Navbar = () => {
-	return (
-		<nav className="navbar navbar-light bg-light">
-			<div className="container">
-				<Link to="/">
-					<span className="navbar-brand mb-0 h1">React Boilerplate</span>
-				</Link>
-				<div className="ml-auto">
-					<Link to="/demo">
-						<button className="btn btn-primary">Check the Context in action</button>
-					</Link>
-				</div>
-			</div>
-		</nav>
-	);
+  const { store, actions } = useContext(Context);
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    console.log("Navbar");
+  }, [store.token]);
+
+  const handleClick = () => {
+    !store.token && navigate("/login");
+    actions.logOut();
+  };
+  return (
+    <nav className="navbar navbar-light bg-light">
+      <div className="container">
+        <Link to="/">
+          <span className="navbar-brand mb-0 h1">Home</span>
+        </Link>
+        {store?.token && (
+          <Link to="/private">
+            <span className="navbar-brand mb-0 h1">Dashboard</span>
+          </Link>
+        )}
+        {store?.token && (
+          <Link to="/privateEmpresa">
+            <span className="navbar-brand mb-0 h1">Dashboard2</span>
+          </Link>
+        )}
+        <div className="ml-auto">
+          <Link to="/login">
+            <button className="btn btn-secondary" onClick={handleClick}>
+              {store?.token ? "Logout (Usuario)" : "Login / Registro (Usuario)"}
+            </button>
+          </Link>
+        </div>
+        <div className="ml-auto">
+          <Link to="/loginEmpresa">
+            <button className="btn btn-success" onClick={handleClick}>
+              {store?.token ? "Logout (Empresa)" : "Login / Registro (Empresa)"}
+            </button>
+          </Link>
+        </div>
+      </div>
+    </nav>
+  );
 };
