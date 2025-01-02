@@ -90,15 +90,21 @@ def validate_user():
 def register_company():
     
     body = request.get_json()
+    company_nif = body.get('nif', None)
     company_nombre = body.get('nombre', None)
+    company_sector = body.get('sector', None)
+    company_direccion = body.get('direccion', None)
     company_email = body.get('email', None)
+    company_descripcion = body.get('descripcion', None)
+    company_web= body.get('web', None)
     company_contraseña = body.get('contraseña', None)
+    company_certificado = body.get('certificado', None)
     if company_nombre is None or company_email is None or company_contraseña is None:
         return {'message': 'Missing arguments'}      
     bpassword = bytes(company_contraseña, 'utf-8')
     salt = bcrypt.gensalt(14)
     hashed_password = bcrypt.hashpw(password=bpassword, salt=salt)       
-    user = Company("",company_nombre, "", "", company_email,"","", hashed_password.decode('utf-8'),"")    
+    user = Company(company_nif, company_nombre, company_sector, company_direccion, company_email, company_descripcion, company_web, hashed_password.decode('utf-8'), company_certificado)    
     #return {'message': f'nombre: {user.nombre} email: {user.email} contraseña: {contraseña}'}
     db.session.add(user)
     db.session.commit()
