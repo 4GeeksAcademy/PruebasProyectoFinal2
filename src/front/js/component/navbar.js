@@ -8,12 +8,13 @@ export const Navbar = () => {
 
   useEffect(() => {
     console.log("Navbar");
-  }, [store.token]);
+  }, [store.token, store.token1] );
 
   const handleClick = () => {
     !store.token && navigate("/login");
     actions.logOut();
   };
+  
   return (
     <nav className="navbar navbar-light bg-light">
       <div className="container">
@@ -25,7 +26,7 @@ export const Navbar = () => {
             <span className="navbar-brand mb-0 h1">User Control Panel </span>
           </Link>
         )}
-        {store?.token && (
+        {store?.token1 && (
           <Link to="/privateEmpresa">
             <span className="navbar-brand mb-0 h1">Company Control Panel</span>
           </Link>
@@ -40,7 +41,7 @@ export const Navbar = () => {
         <div className="ml-auto">
           <Link to="/loginEmpresa">
             <button className="btn btn-success" onClick={handleClick}>
-              {store?.token ? "Logout (Empresa)" : "Login / Registro (Empresa)"}
+              {store?.token1 ? "Logout (Empresa)" : "Login / Registro (Empresa)"}
             </button>
           </Link>
         </div>

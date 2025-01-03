@@ -16,7 +16,7 @@ const Private = () => {
 
   return (
     <>
-      {store?.token ? <Dashboard name={store.profile?.name} /> : navigate("/")}
+      {store?.token ? <Dashboard nombre={store.profile?.nombre} /> : navigate("/")}
       {/*navigate("/")*/}
     </>
   );

@@ -109,7 +109,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 			const data = await resp.json();
 			return true;
 		  } catch (err) {
-			console.log("Error sending customer to back backend", error);
+			console.log("Error sending customer to back backend", err);
 		  }
 		},
 
@@ -125,7 +125,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 			  const data = await resp.json();
 			  return true;
 			} catch (err) {
-			  console.log("Error sending customer to back backend", error);
+			  console.log("Error sending customer to back backend", err);
 			}
 		  },
 		logOut: () => {

@@ -1,7 +1,7 @@
 import React, { useContext, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { Context } from "../store/appContext";
-import Dashboard from "../component/dashboardEmpresa";
+import DashboardEmpresa from "../component/dashboardEmpresa";
 import { useLocalStorage } from "../hooks/hooks";
 
 const PrivateEmpresa = () => {
@@ -16,7 +16,7 @@ const PrivateEmpresa = () => {
 
   return (
     <>
-      {store?.token ? <Dashboard name={store.profile?.name} /> : navigate("/")}
+      {store?.token? <DashboardEmpresa nombre={store.profile?.nombre} /> : navigate("/")}
       {/*navigate("/")*/}
     </>
   );

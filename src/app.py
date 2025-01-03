@@ -24,7 +24,7 @@ app.url_map.strict_slashes = False
 app.config["JWT_SECRET_KEY"] = "Diego-Vega"#"L@t@m-21"  # Change this!
 jwt = JWTManager(app)
 
-# database condiguration
+# database configuration
 db_url = os.getenv("DATABASE_URL")
 if db_url is not None:
     app.config['SQLALCHEMY_DATABASE_URI'] = db_url.replace("postgres://", "postgresql://")

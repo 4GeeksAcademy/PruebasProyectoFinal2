@@ -1,9 +1,9 @@
 import React from "react";
 import "../../styles/dashboardEmpresa.css"
 
-const Dashboard = ({nombre}) => {
+const DashboardEmpresa = ({nombre}) => {
   return (
-    <div className="dashboard">
+    <div className="dashboardEmpresa">
       <div className="left">
         <div className="sidebar">
           <div className="wrapper">
@@ -26,7 +26,7 @@ const Dashboard = ({nombre}) => {
         <div className="navigation">
           <div className="wrapper2">
             <button className="compose mt-3">
-              Nuevo Mail
+              Nuevo Mail Empresa
               <span className="plus">
                 <img src="https://i.ibb.co/v1HxGWj/add-1.png" />
               </span>
@@ -354,4 +354,4 @@ const Dashboard = ({nombre}) => {
   );
 };
 
-export default Dashboard;
+export default DashboardEmpresa;

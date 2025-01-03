@@ -28,7 +28,7 @@ const LoginEmpresa = () => {
   };
 
   useEffect(() => {
-    store.token && navigate("/privateEmpresa");
+    store.token1 && navigate("/privateEmpresa");
     return () => {
       setUser({
         nif: "",
@@ -42,7 +42,7 @@ const LoginEmpresa = () => {
         password_check: "",
       });
     };
-  }, [store.token, navigate]);
+  }, [store.token1, navigate]);
 
   const registerUser = async () => {
     if (user.contraseña === user.password_check && user.contraseña !== "") {
