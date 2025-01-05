@@ -62,8 +62,8 @@ const getState = ({ getStore, getActions, setStore }) => {
 			  });
 			  const data = await resp.json();
 			  console.log(data);
-			  setStore({ token: data.token });
-			  localStorage.setItem("token", data.token);
+			  setStore({ token1: data.token });
+			  localStorage.setItem("token1", data.token);
 			  getActions().getUserProfile();
 			  // don't forget to return something, that is how the async resolves
 			  return data.authorize;
@@ -128,9 +128,9 @@ const getState = ({ getStore, getActions, setStore }) => {
 			  console.log("Error sending customer to back backend", err);
 			}
 		  },
-		logOut: () => {
-		  localStorage.removeItem("token");
-		  setStore({ token: null, profile: null });
+		logOut: (type) => {
+		  localStorage.removeItem(type);
+		  setStore({ token: null,token1: null, profile: null });
 		},
 	  },
 	};

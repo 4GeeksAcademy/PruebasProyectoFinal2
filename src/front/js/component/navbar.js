@@ -10,9 +10,13 @@ export const Navbar = () => {
     console.log("Navbar");
   }, [store.token, store.token1] );
 
-  const handleClick = () => {
+  const handleClickUser = () => {
     !store.token && navigate("/login");
-    actions.logOut();
+    actions.logOut("token");
+  };
+  const handleClickEmpresa = () => {
+    !store.token1 && navigate("/loginEmpresa");
+    actions.logOut("token1");
   };
   
   return (
@@ -23,25 +27,25 @@ export const Navbar = () => {
           <span className="navbar-brand mb-0 h1">Home</span>
         </Link>
         {store?.token && (
-          <Link to="/private">
+          <Link to="/private">     
             <span className="navbar-brand mb-0 h1">User Control Panel </span>
           </Link>
         )}
         {store?.token1 && (
-          <Link to="/privateEmpresa">
+          <Link to="/privateEmpresa">       
             <span className="navbar-brand mb-0 h1">Company Control Panel</span>
           </Link>
         )}
         <div className="ml-auto">
           <Link to="/login">
-            <button className="btn btn-secondary" onClick={handleClick}>
+            <button className="btn btn-secondary" onClick={handleClickUser}>
               {store?.token ? "Logout (Usuario)" : "Login / Registro (Usuario)"}
             </button>
           </Link>
         </div>
         <div className="ml-auto">
           <Link to="/loginEmpresa">
-            <button className="btn btn-success" onClick={handleClick}>
+            <button className="btn btn-success" onClick={handleClickEmpresa}>
               {store?.token1 ? "Logout (Empresa)" : "Login / Registro (Empresa)"}
             </button>
           </Link>
