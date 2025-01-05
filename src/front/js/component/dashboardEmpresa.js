@@ -1,7 +1,7 @@
 import React from "react";
 import "../../styles/dashboardEmpresa.css"
 
-const DashboardEmpresa = ({nombre}) => {
+const dashboardEmpresa = ({empresa}) => {
   return (
     <div className="dashboardEmpresa">
       <div className="left">
@@ -148,7 +148,7 @@ const DashboardEmpresa = ({nombre}) => {
             </div>
             <div className="profile2">
               <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRxskBELKkcItHXQFVTYI5p3_413uobvl2BHJLEM7PNg4cag9-l6n2mydDwws1CjV0ZTjw&usqp=CAU" />
-              <div className="icon-name5">{nombre}</div>
+              <div className="icon-name5">{empresa}</div>
             </div>
           </div>
           <hr className="new-hr" />
@@ -294,8 +294,8 @@ const DashboardEmpresa = ({nombre}) => {
             <div className="from">
               <span className="who">From: </span>ZASf@4GeeksAcademy.com
             </div>
-            <div className="message-from">
-              Hola {nombre}!
+            <div className="message-from1">
+              Hola {empresa}!
               <p>
                 {" "}
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint,
@@ -354,4 +354,4 @@ const DashboardEmpresa = ({nombre}) => {
   );
 };
 
-export default DashboardEmpresa;
+export default dashboardEmpresa;

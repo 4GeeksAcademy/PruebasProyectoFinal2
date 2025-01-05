@@ -38,7 +38,7 @@ const Login = () => {
     if (user.contraseña === user.password_check && user.contraseña !== "") {
       const createUser = await actions.createUser(user);
       if (createUser) {
-        toggleModal("User was created successfully!");
+        toggleModal("Usuario creado sastisfactoriamente!");
         setUser({
           ...user,
           nombre: "",
@@ -48,10 +48,10 @@ const Login = () => {
         });
         setIsShown(!isShow);
       } else {
-        toggleModal("An unexpected error occurred.");
+        toggleModal("Upss! ocurrió un error inesperado!");
       }
     } else {
-      toggleModal("Passwords do not match!");
+      toggleModal("Contraseñas no coinciden!");
       setUser({ ...user, contraseña: "", password_check: "" });
     }
   };
@@ -59,10 +59,10 @@ const Login = () => {
   const loginCustomer = async () => {
     const login = await actions.loginUser(user);
     if (login) {
-      toggleModal("Login was successful!");
+      toggleModal("Login satisfactorio!");
       setTimeout(() => navigate("/private"), 1500);
     } else {
-      toggleModal("Unable to login. Please check your credentials.");
+      toggleModal("Imposible logearse, compruebe sus datos!!");
       setUser({
         ...user,
         contraseña: "",
@@ -80,7 +80,7 @@ const Login = () => {
               <input
                 type="text"
                 value={user.nombre}
-                placeholder="Name"
+                placeholder="Nombre"
                 autoComplete="off"
                 onChange={(e) => setUser({ ...user, nombre: e.target.value })}
               />
@@ -99,7 +99,7 @@ const Login = () => {
             <input
               type="password"
               value={user.contraseña}
-              placeholder="Password"
+              placeholder="Contraseña"
               autoComplete="new-password"
               onChange={(e) => setUser({ ...user, contraseña: e.target.value })}
             />
@@ -109,7 +109,7 @@ const Login = () => {
               <input
                 type="password"
                 value={user.password_check}
-                placeholder="Repeat Password"
+                placeholder="Repetir Contraseña"
                 autoComplete="new-password"
                 onChange={(e) =>
                   setUser({ ...user, password_check: e.target.value })
@@ -123,7 +123,7 @@ const Login = () => {
             className={!isShow ? "" : "selected"}
             onClick={() => (isShow ? registerUser() : setIsShown(!isShow))}
           >
-            Register
+            Registro
           </button>
           <button
             className={isShow ? "" : "selected"}

@@ -16,10 +16,8 @@ const PrivateEmpresa = () => {
 
   return (
     <>
-      {store?.token? <DashboardEmpresa nombre={store.profile?.nombre} /> : navigate("/")}
+      {store?.token ? <DashboardEmpresa empresa={store.profile?.nombre} /> : navigate("/")}
       {/*navigate("/")*/}
     </>
   );
 };
-
-export default PrivateEmpresa;

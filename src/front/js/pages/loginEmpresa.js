@@ -48,7 +48,7 @@ const LoginEmpresa = () => {
     if (user.contraseña === user.password_check && user.contraseña !== "") {
       const createUser = await actions.createCompany(user);
       if (createUser) {
-        toggleModal("User was created successfully!");
+        toggleModal("Empresa creada satisfactoriamente!");
         setUser({
           ...user,
           nif: "",
@@ -63,10 +63,10 @@ const LoginEmpresa = () => {
         });
         setIsShown(!isShow);
       } else {
-        toggleModal("An unexpected error occurred.");
+        toggleModal("Upss! ocurrió un error inesperado!");
       }
     } else {
-      toggleModal("Passwords do not match!");
+      toggleModal("Contraseñas no coinciden!");
       setUser({ ...user, contraseña: "", password_check: "" });
     }
   };
@@ -74,10 +74,10 @@ const LoginEmpresa = () => {
   const loginCustomer = async () => {
     const login = await actions.loginCompany(user);
     if (login) {
-      toggleModal("Login was successful!");
+      toggleModal("Login satisfactorio!");
       setTimeout(() => navigate("/privateEmpresa"), 1500);
     } else {
-      toggleModal("Unable to login. Please check your credentials.");
+      toggleModal("Imposible logearse, compruebe sus datos!!");
       setUser({
         ...user,
         contraseña: "",
@@ -189,7 +189,7 @@ const LoginEmpresa = () => {
             className={!isShow ? "" : "selected"}
             onClick={() => (isShow ? registerUser() : setIsShown(!isShow))}
           >
-            Register
+            Registro
           </button>
           <button
             className={isShow ? "" : "selected"}

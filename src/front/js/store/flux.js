@@ -130,7 +130,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 		  },
 		logOut: (type) => {
 		  localStorage.removeItem(type);
-		  setStore({ token: null,token1: null, profile: null });
+		  setStore({ token: null, token1: null, profile: null });
 		},
 	  },
 	};
